@@ -1,0 +1,33 @@
+# first check the length of the list to ensure it is > 1
+    if len(input) < 2:
+        return input
+        
+    # use the first item in the list as the pivot value
+    # use a for loop to extract all instances of the pivot value
+    pivot = [x for x in input if x == input[0]]
+    
+    # for loop to extract all items < pivot; sort that new list via recursion
+    smallers = sortwithloops([x for x in input if x < input[0] ])
+    
+    # for loop to extract all items > pivot; sort that new list via recursion
+    largers = sortwithloops([x for x in input if x > input[0] ])
+	
+	
+	
+# bad code
+avg_lat_long_by_ward_df = df[df['longitude'] != 0]. \
+groupby(['ward'])['latitude','longitude'].mean().reset_index()
+avg_lat_long_by_ward_df.columns=['ward','avg_latitude','avg_longitude']
+
+avg_lat_long_by_lga_df = df[df['longitude'] != 0]. \
+groupby(['lga'])['latitude','longitude'].mean().reset_index()
+avg_lat_long_by_lga_df.columns=['lga','avg_latitude','avg_longitude']
+
+avg_lat_long_by_region_df = df[df['longitude'] != 0]. \
+groupby(['region'])['latitude','longitude'].mean().reset_index()
+
+avg_lat_long_by_region_df.columns=['region','avg_latitude','avg_longitude']
+
+
+avg_lat_ward_dict = dict(zip(list(avg_lat_long_by_ward_df['ward']),list(avg_lat_long_by_ward_df['avg_latitude'])))
+avg_long_ward_dict = dict(zip(list(avg_lat_long_by_ward_df['ward']),list(avg_lat_long_by_ward_df['avg_longitude'])))
