@@ -1,10 +1,8 @@
 numpy
 pandas
-urllib
 requests
 json
 lxml
 beautifulsoup4
 bs4
 html5lib
-io
